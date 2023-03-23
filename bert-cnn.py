@@ -1,5 +1,7 @@
 
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+import os
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 def distilbert_model(storyfile):
     tokenizer = AutoTokenizer.from_pretrained("sshleifer/distilbart-cnn-12-6")
@@ -91,7 +93,7 @@ def bert_model(storyfile):
     f.write(summary)
     f.close()
 
-    return summary
+    return summaryFilename
 
 
 # for i in range(0, 10):
